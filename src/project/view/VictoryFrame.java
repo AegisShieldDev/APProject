@@ -3,25 +3,20 @@ package project.view;
 import project.controller.ProjectController;
 import javax.swing.JFrame;
 
-import java.awt.Color;
-
-import javax.swing.*;
-
-public class ProjectFrame extends JFrame
+public class VictoryFrame extends JFrame
 {
 	private ProjectController appController;
-	private ProjectPanel appPanel;
-	private Color backgroundBlue;
+	private VictoryPanel appPanel;
 	
 	/**
 	 * creates the ChatFrame, calls setupframe
 	 * @param ChatbotController appController
 	 */
-	public ProjectFrame(ProjectController appController)
+	public VictoryFrame(ProjectController appController)
 	{
 		super();
 		this.appController = appController;
-		appPanel = new ProjectPanel(appController);
+		appPanel = new VictoryPanel(appController, this);
 		setupFrame();
 	}
 	
@@ -30,23 +25,14 @@ public class ProjectFrame extends JFrame
 	 */
 	private void setupFrame()
 	{	
-		Color backgroundBlue = new Color(51, 204, 255);
 		this.setContentPane(appPanel);
-		this.setSize(600,600);
+		this.setSize(400,400);
 		this.setTitle("Slider!");
 		this.setResizable(false);
 		this.setVisible(true);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		appPanel.setBackground(backgroundBlue);
+		this.setLocationRelativeTo(appController.getAppFrame());
 	}
 	
-	/**
-	 * Getter for the appController
-	 * @return
-	 */
-	public ProjectController getBaseController()
-	{
-		return(appController);
-	}
 	
 }

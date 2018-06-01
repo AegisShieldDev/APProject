@@ -5,12 +5,19 @@ import project.model.*;
 
 public class ProjectController
 {	
+	private ProjectFrame myFrame;
+	
 	public ProjectController()
 	{
-		ProjectFrame myFrame = new ProjectFrame(this);
+		myFrame = new ProjectFrame(this);
 	}
 	
 	public void start()
 	{
+	}
+	
+	public ProjectFrame getAppFrame()
+	{
+		return myFrame;
 	}
 }

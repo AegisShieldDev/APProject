@@ -8,10 +8,12 @@ import javax.swing.*;
 public class APButton extends JButton
 {
 	int pos, num;
+	String name;
 	
 	public APButton(String name, int num, int pos, Boolean enabled)
 	{
 		this.setText(name);
+		this.name = name;
 		this.pos = pos;
 		this.num = num;
 		setupButton(this);
@@ -23,12 +25,7 @@ public class APButton extends JButton
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				int mover = button.getButtonPosition();
 				
-				if(mover <= 3)
-				{
-					
-				}
 				
 			}
 		});
@@ -37,10 +34,10 @@ public class APButton extends JButton
 	public int getNorthButton(APButton button)
 	{
 		int res = 0;
-		if(button.getButtonNumber() <= 4)
+		if(button.getNumber() <= 4)
 			res = 0;
 		else
-			res = button.getButtonNumber() - 4;
+			res = button.getNumber() - 4;
 		
 		//System.out.println("North: " + res);
 			
@@ -49,10 +46,10 @@ public class APButton extends JButton
 	public int getSouthButton(APButton button)
 	{
 		int res = 0;
-		if(button.getButtonNumber() >= 13 && button.getButtonNumber() <= 16)
+		if(button.getNumber() >= 13 && button.getNumber() <= 16)
 			res = 0;
 		else
-			res = button.getButtonNumber() + 4;
+			res = button.getNumber() + 4;
 			
 		//System.out.println("South: " + res);
 		
@@ -61,10 +58,10 @@ public class APButton extends JButton
 	public int getEastButton(APButton button)
 	{
 		int res = 0;
-		if(button.getButtonNumber() == 4 || button.getButtonNumber() == 8 || button.getButtonNumber() == 12 || button.getButtonNumber() == 16)
+		if(button.getNumber() == 4 || button.getNumber() == 8 || button.getNumber() == 12 || button.getNumber() == 16)
 			res = 0;
 		else
-			res = button.getButtonNumber() + 1;
+			res = button.getNumber() + 1;
 		
 		//System.out.println("East: " + res);
 		
@@ -73,10 +70,10 @@ public class APButton extends JButton
 	public int getWestButton(APButton button)
 	{
 		int res = 0;
-		if(button.getButtonNumber() == 1 || button.getButtonNumber() == 5 || button.getButtonNumber() == 9 || button.getButtonNumber() == 13)
+		if(button.getNumber() == 1 || button.getNumber() == 5 || button.getNumber() == 9 || button.getNumber() == 13)
 			res = 0;
 		else
-			res = button.getButtonNumber() - 1;
+			res = button.getNumber() - 1;
 		
 		//System.out.println("West: " + res);
 			
@@ -109,6 +106,11 @@ public class APButton extends JButton
 		return(enabled);
 	}
 	
+	public void setPos(int position)
+	{
+		pos = position;
+	}
+	
 	public boolean getDisabled(APButton button)
 	{
 		return true;
@@ -119,21 +121,28 @@ public class APButton extends JButton
 		return button.getText();
 	}
 	
-	public int getButtonPosition()
+	public int getPos()
 	{
 		return pos;
 	}
 	
-	public int getButtonNumber()
+	public int getNumber()
 	{
 		return num;
 	}
 	
-	public Boolean isButtonEnabled(APButton button)
+	public Boolean isEnabled(APButton button)
 	{
 		return button.isEnabled();
 	}
 	
+	public void setPosAndName(int position, String newName)
+	{
+		pos = position;
+		name = newName;
+		setText(newName);
+		repaint();
+	}
 	
 	
 }

@@ -1,14 +1,6 @@
-package project.model;
+Graveyard
 
-public class Slider
-{
-	Boolean[][] sliderArray = new Boolean[4][4];
-			
-	public Slider()
-	{
-		setupSlider();
-	}
-	
+/*
 	public void setupSlider()
 	{
 		int fill = 1;
@@ -27,21 +19,21 @@ public class Slider
 					  
 				fill++;
 				  
-				System.out.print(sliderArray[row][col] + " ");
+				//System.out.print(sliderArray[row][col] + " ");
 			}
 		}
 	}
 	
 	public void slideTile(APButton button)
 	{
-		System.out.println("You clicked button " + button.getButtonNumber());
+		System.out.println("You clicked button " + button.getNumber());
 		
 		int[] sur = button.getSurroundingButtons(button);
 		Boolean[] enabledButtons = button.getEnabledButtons(button);
 		
 		for(int i = 0; i < 4; i++)
 		{
-			System.out.println("The surrounding buttons are " + sur[i]);
+			//System.out.println("The surrounding buttons are " + sur[i]);
 			System.out.println("The surrounding buttons are " + enabledButtons[i]);
 		}
 		
@@ -51,22 +43,24 @@ public class Slider
 	public Boolean isSurroundEnabled(APButton button)
 	{
 		int[] sur = button.getSurroundingButtons(button);
-		if(button.getButtonPosition() == 1)
+		if(button.getPos() == 1)
 		{
 			if(sliderArray[1][2] == false)
 			{
 				return false;
 			}
 		}
-		if(button.getButtonPosition() == 11)
+		if(button.getPos() == 11)
 		{
 			if(sliderArray[4][4] == false)
 			{
-				System.out.println("FAE OSFJASO");
+				System.out.println("Testing isSurroundEnabled");
 				return false;
 			}
 		}
 		
 		return true;
 	}
-}
+	*/
+	
+	
